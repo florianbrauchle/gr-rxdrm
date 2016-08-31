@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<block>
+  <name>Frame Detection</name>
+  <key>rxdrm_framer_cc</key>
+  <category>DRM-Rx</category>
+  <import>import rxdrm</import>
+  <make>rxdrm.framer_cc($mode, $p_corr_limit, $print_values)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param>
+    <name>Mode</name>
+    <key>mode</key>
+    <value>0</value>
+    <type>int</type>
+    <hide>all</hide>
+    <option>
+        <name>Auto</name>
+        <key>0</key>
+    </option>
+    <option>
+        <name>A</name>
+        <key>1</key>
+    </option>
+    <option>
+        <name>B</name>
+        <key>2</key>
+    </option>
+  </param>
+
+  <param>
+    <name>Grenzwert</name>
+    <key>p_corr_limit</key>
+    <value>0.9</value>
+    <type>float</type>
+    <hide>part</hide>
+  </param>
+
+  <param>
+    <name>Werte ausgeben?</name>
+    <key>print_values</key>
+    <value>0</value>
+    <type>int</type>
+    <hide>part</hide>
+    <option>
+        <name>Nein</name>
+        <key>0</key>
+    </option>
+    <option>
+        <name>Ja</name>
+        <key>1</key>
+    </option>
+  </param>
+
+
+
+
+
+
+
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>complex</type>
+  </source>
+</block>

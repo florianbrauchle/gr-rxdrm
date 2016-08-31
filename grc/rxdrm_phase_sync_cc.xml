@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<block>
+  <name>Phase Sync</name>
+  <key>rxdrm_phase_sync_cc</key>
+  <category>DRM-Rx</category>
+  <import>import rxdrm</import>
+  <make>rxdrm.phase_sync_cc($fs, $fft_len, $mode)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+
+  <param>
+    <name>Fs</name>
+    <key>fs</key>
+    <value>0</value>
+    <type>int</type>
+    <hide>all</hide>
+  </param>
+
+  <param>
+    <name>Mode</name>
+    <key>mode</key>
+    <value>0</value>
+    <type>int</type>
+    <hide>all</hide>
+    <option>
+        <name>Auto</name>
+        <key>0</key>
+    </option>
+    <option>
+        <name>A</name>
+        <key>1</key>
+    </option>
+    <option>
+        <name>B</name>
+        <key>2</key>
+    </option>
+  </param>
+  <param>
+    <name>FFT length</name>
+    <key>fft_len</key>
+    <value>0</value>
+    <type>int</type>
+    <hide>all</hide>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>complex</type>
+  </source>
+</block>

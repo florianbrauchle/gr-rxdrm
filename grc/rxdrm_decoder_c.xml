@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<block>
+  <name>DRM-Decoder</name>
+  <key>rxdrm_decoder_c</key>
+  <category>DRM-Rx</category>
+  <import>import rxdrm</import>
+  <make>rxdrm.decoder_c($p_info)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param>
+    <name>Informationen ausgeben</name>
+    <key>p_info</key>
+    <value>1</value>
+    <type>int</type>
+    <hide>part</hide>
+    <option>
+        <name>Nein</name>
+        <key>0</key>
+    </option>
+    <option>
+        <name>Ja</name>
+        <key>1</key>
+    </option>
+  </param>
+ 
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+  </sink>
+
+  <source>
+    <name>fac_out</name>
+    <type>message</type>
+  </source>
+
+</block>
